@@ -1,4 +1,4 @@
-module github.com/Azure/DPPGoSDK
+module github.com/azure/DataProtectionPlatformGoPluginSDK 
 
 go 1.18
 
