@@ -555,4 +555,3 @@ type ValidateForRestoreClientRefreshTokensResponse struct {
 	// XMSRequestID contains the information returned from the x-ms-request-id header response.
 	XMSRequestID *string
 }
-

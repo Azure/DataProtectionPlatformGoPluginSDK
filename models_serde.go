@@ -9,9 +9,10 @@ package dataprotectiondatasourceplugin
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"reflect"
 	"time"
+
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 )
 
 // MarshalJSON implements the json.Marshaller interface for type AdhocBasedTriggerContext.
@@ -32,11 +33,11 @@ func (a *AdhocBasedTriggerContext) UnmarshalJSON(data []byte) error {
 		var err error
 		switch key {
 		case "objectType":
-				err = unpopulate(val, "ObjectType", &a.ObjectType)
-				delete(rawMsg, key)
+			err = unpopulate(val, "ObjectType", &a.ObjectType)
+			delete(rawMsg, key)
 		case "taggingCriteria":
-				err = unpopulate(val, "TaggingCriteria", &a.TaggingCriteria)
-				delete(rawMsg, key)
+			err = unpopulate(val, "TaggingCriteria", &a.TaggingCriteria)
+			delete(rawMsg, key)
 		}
 		if err != nil {
 			return fmt.Errorf("unmarshalling type %T: %v", a, err)
@@ -63,11 +64,11 @@ func (a *AzureBackupParams) UnmarshalJSON(data []byte) error {
 		var err error
 		switch key {
 		case "backupType":
-				err = unpopulate(val, "BackupType", &a.BackupType)
-				delete(rawMsg, key)
+			err = unpopulate(val, "BackupType", &a.BackupType)
+			delete(rawMsg, key)
 		case "objectType":
-				err = unpopulate(val, "ObjectType", &a.ObjectType)
-				delete(rawMsg, key)
+			err = unpopulate(val, "ObjectType", &a.ObjectType)
+			delete(rawMsg, key)
 		}
 		if err != nil {
 			return fmt.Errorf("unmarshalling type %T: %v", a, err)
@@ -99,26 +100,26 @@ func (a *AzureBackupParamsForPlugin) UnmarshalJSON(data []byte) error {
 		var err error
 		switch key {
 		case "autoHealSettings":
-				err = unpopulate(val, "AutoHealSettings", &a.AutoHealSettings)
-				delete(rawMsg, key)
+			err = unpopulate(val, "AutoHealSettings", &a.AutoHealSettings)
+			delete(rawMsg, key)
 		case "backupType":
-				err = unpopulate(val, "BackupType", &a.BackupType)
-				delete(rawMsg, key)
+			err = unpopulate(val, "BackupType", &a.BackupType)
+			delete(rawMsg, key)
 		case "objectType":
-				err = unpopulate(val, "ObjectType", &a.ObjectType)
-				delete(rawMsg, key)
+			err = unpopulate(val, "ObjectType", &a.ObjectType)
+			delete(rawMsg, key)
 		case "policyInfo":
-				err = unpopulate(val, "PolicyInfo", &a.PolicyInfo)
-				delete(rawMsg, key)
+			err = unpopulate(val, "PolicyInfo", &a.PolicyInfo)
+			delete(rawMsg, key)
 		case "policyParameters":
-				err = unpopulate(val, "PolicyParameters", &a.PolicyParameters)
-				delete(rawMsg, key)
+			err = unpopulate(val, "PolicyParameters", &a.PolicyParameters)
+			delete(rawMsg, key)
 		case "retentionTag":
-				err = unpopulate(val, "RetentionTag", &a.RetentionTag)
-				delete(rawMsg, key)
+			err = unpopulate(val, "RetentionTag", &a.RetentionTag)
+			delete(rawMsg, key)
 		case "triggerType":
-				err = unpopulate(val, "TriggerType", &a.TriggerType)
-				delete(rawMsg, key)
+			err = unpopulate(val, "TriggerType", &a.TriggerType)
+			delete(rawMsg, key)
 		}
 		if err != nil {
 			return fmt.Errorf("unmarshalling type %T: %v", a, err)
@@ -146,14 +147,14 @@ func (a *AzureOperationalStoreParameters) UnmarshalJSON(data []byte) error {
 		var err error
 		switch key {
 		case "dataStoreType":
-				err = unpopulate(val, "DataStoreType", &a.DataStoreType)
-				delete(rawMsg, key)
+			err = unpopulate(val, "DataStoreType", &a.DataStoreType)
+			delete(rawMsg, key)
 		case "objectType":
-				err = unpopulate(val, "ObjectType", &a.ObjectType)
-				delete(rawMsg, key)
+			err = unpopulate(val, "ObjectType", &a.ObjectType)
+			delete(rawMsg, key)
 		case "resourceGroupId":
-				err = unpopulate(val, "ResourceGroupID", &a.ResourceGroupID)
-				delete(rawMsg, key)
+			err = unpopulate(val, "ResourceGroupID", &a.ResourceGroupID)
+			delete(rawMsg, key)
 		}
 		if err != nil {
 			return fmt.Errorf("unmarshalling type %T: %v", a, err)
@@ -213,23 +214,23 @@ func (b *BackupRule) UnmarshalJSON(data []byte) error {
 		var err error
 		switch key {
 		case "autoHealSettings":
-				err = unpopulate(val, "AutoHealSettings", &b.AutoHealSettings)
-				delete(rawMsg, key)
+			err = unpopulate(val, "AutoHealSettings", &b.AutoHealSettings)
+			delete(rawMsg, key)
 		case "backupParameters":
-				b.BackupParameters, err = unmarshalBackupParametersClassification(val)
-				delete(rawMsg, key)
+			b.BackupParameters, err = unmarshalBackupParametersClassification(val)
+			delete(rawMsg, key)
 		case "name":
-				err = unpopulate(val, "Name", &b.Name)
-				delete(rawMsg, key)
+			err = unpopulate(val, "Name", &b.Name)
+			delete(rawMsg, key)
 		case "objectType":
-				err = unpopulate(val, "ObjectType", &b.ObjectType)
-				delete(rawMsg, key)
+			err = unpopulate(val, "ObjectType", &b.ObjectType)
+			delete(rawMsg, key)
 		case "targetDatastore":
-				err = unpopulate(val, "TargetDatastore", &b.TargetDatastore)
-				delete(rawMsg, key)
+			err = unpopulate(val, "TargetDatastore", &b.TargetDatastore)
+			delete(rawMsg, key)
 		case "trigger":
-				b.Trigger, err = unmarshalTriggerContextClassification(val)
-				delete(rawMsg, key)
+			b.Trigger, err = unmarshalTriggerContextClassification(val)
+			delete(rawMsg, key)
 		}
 		if err != nil {
 			return fmt.Errorf("unmarshalling type %T: %v", b, err)
@@ -285,11 +286,11 @@ func (b *BlobBackupDatasourceParameters) UnmarshalJSON(data []byte) error {
 		var err error
 		switch key {
 		case "containersList":
-				err = unpopulate(val, "ContainersList", &b.ContainersList)
-				delete(rawMsg, key)
+			err = unpopulate(val, "ContainersList", &b.ContainersList)
+			delete(rawMsg, key)
 		case "objectType":
-				err = unpopulate(val, "ObjectType", &b.ObjectType)
-				delete(rawMsg, key)
+			err = unpopulate(val, "ObjectType", &b.ObjectType)
+			delete(rawMsg, key)
 		}
 		if err != nil {
 			return fmt.Errorf("unmarshalling type %T: %v", b, err)
@@ -344,50 +345,50 @@ func (c *CommitOrRollbackRestoreRequest) UnmarshalJSON(data []byte) error {
 		var err error
 		switch key {
 		case "additionalProperties":
-				err = unpopulate(val, "AdditionalProperties", &c.AdditionalProperties)
-				delete(rawMsg, key)
+			err = unpopulate(val, "AdditionalProperties", &c.AdditionalProperties)
+			delete(rawMsg, key)
 		case "datasourceAccessToken":
-				err = unpopulate(val, "DatasourceAccessToken", &c.DatasourceAccessToken)
-				delete(rawMsg, key)
+			err = unpopulate(val, "DatasourceAccessToken", &c.DatasourceAccessToken)
+			delete(rawMsg, key)
 		case "datastoreInitializeParams":
-				err = unpopulate(val, "DatastoreInitializeParams", &c.DatastoreInitializeParams)
-				delete(rawMsg, key)
+			err = unpopulate(val, "DatastoreInitializeParams", &c.DatastoreInitializeParams)
+			delete(rawMsg, key)
 		case "forceOverwrite":
-				err = unpopulate(val, "ForceOverwrite", &c.ForceOverwrite)
-				delete(rawMsg, key)
+			err = unpopulate(val, "ForceOverwrite", &c.ForceOverwrite)
+			delete(rawMsg, key)
 		case "iLRRestoreCriteria":
-				c.ILRRestoreCriteria, err = unmarshalItemLevelRestoreCriteriaClassificationArray(val)
-				delete(rawMsg, key)
+			c.ILRRestoreCriteria, err = unmarshalItemLevelRestoreCriteriaClassificationArray(val)
+			delete(rawMsg, key)
 		case "jobLibraryInitializationParams":
-				err = unpopulate(val, "JobLibraryInitializationParams", &c.JobLibraryInitializationParams)
-				delete(rawMsg, key)
+			err = unpopulate(val, "JobLibraryInitializationParams", &c.JobLibraryInitializationParams)
+			delete(rawMsg, key)
 		case "loopBackContext":
-				err = unpopulate(val, "LoopBackContext", &c.LoopBackContext)
-				delete(rawMsg, key)
+			err = unpopulate(val, "LoopBackContext", &c.LoopBackContext)
+			delete(rawMsg, key)
 		case "rPCatalogInitializeParams":
-				err = unpopulate(val, "RPCatalogInitializeParams", &c.RPCatalogInitializeParams)
-				delete(rawMsg, key)
+			err = unpopulate(val, "RPCatalogInitializeParams", &c.RPCatalogInitializeParams)
+			delete(rawMsg, key)
 		case "restoreAsFilesTargetDetails":
-				err = unpopulate(val, "RestoreAsFilesTargetDetails", &c.RestoreAsFilesTargetDetails)
-				delete(rawMsg, key)
+			err = unpopulate(val, "RestoreAsFilesTargetDetails", &c.RestoreAsFilesTargetDetails)
+			delete(rawMsg, key)
 		case "restoreToPointInTime":
-				err = unpopulate(val, "RestoreToPointInTime", &c.RestoreToPointInTime)
-				delete(rawMsg, key)
+			err = unpopulate(val, "RestoreToPointInTime", &c.RestoreToPointInTime)
+			delete(rawMsg, key)
 		case "restoreToRPId":
-				err = unpopulate(val, "RestoreToRPID", &c.RestoreToRPID)
-				delete(rawMsg, key)
+			err = unpopulate(val, "RestoreToRPID", &c.RestoreToRPID)
+			delete(rawMsg, key)
 		case "sourceDatasource":
-				err = unpopulate(val, "SourceDatasource", &c.SourceDatasource)
-				delete(rawMsg, key)
+			err = unpopulate(val, "SourceDatasource", &c.SourceDatasource)
+			delete(rawMsg, key)
 		case "sourceDatasourceSet":
-				err = unpopulate(val, "SourceDatasourceSet", &c.SourceDatasourceSet)
-				delete(rawMsg, key)
+			err = unpopulate(val, "SourceDatasourceSet", &c.SourceDatasourceSet)
+			delete(rawMsg, key)
 		case "targetDatasource":
-				err = unpopulate(val, "TargetDatasource", &c.TargetDatasource)
-				delete(rawMsg, key)
+			err = unpopulate(val, "TargetDatasource", &c.TargetDatasource)
+			delete(rawMsg, key)
 		case "targetDatasourceSet":
-				err = unpopulate(val, "TargetDatasourceSet", &c.TargetDatasourceSet)
-				delete(rawMsg, key)
+			err = unpopulate(val, "TargetDatasourceSet", &c.TargetDatasourceSet)
+			delete(rawMsg, key)
 		}
 		if err != nil {
 			return fmt.Errorf("unmarshalling type %T: %v", c, err)
@@ -421,32 +422,32 @@ func (d *Datasource) UnmarshalJSON(data []byte) error {
 		var err error
 		switch key {
 		case "baseUri":
-				err = unpopulate(val, "BaseURI", &d.BaseURI)
-				delete(rawMsg, key)
+			err = unpopulate(val, "BaseURI", &d.BaseURI)
+			delete(rawMsg, key)
 		case "datasourceType":
-				err = unpopulate(val, "DatasourceType", &d.DatasourceType)
-				delete(rawMsg, key)
+			err = unpopulate(val, "DatasourceType", &d.DatasourceType)
+			delete(rawMsg, key)
 		case "objectType":
-				err = unpopulate(val, "ObjectType", &d.ObjectType)
-				delete(rawMsg, key)
+			err = unpopulate(val, "ObjectType", &d.ObjectType)
+			delete(rawMsg, key)
 		case "resourceID":
-				err = unpopulate(val, "ResourceID", &d.ResourceID)
-				delete(rawMsg, key)
+			err = unpopulate(val, "ResourceID", &d.ResourceID)
+			delete(rawMsg, key)
 		case "resourceLocation":
-				err = unpopulate(val, "ResourceLocation", &d.ResourceLocation)
-				delete(rawMsg, key)
+			err = unpopulate(val, "ResourceLocation", &d.ResourceLocation)
+			delete(rawMsg, key)
 		case "resourceName":
-				err = unpopulate(val, "ResourceName", &d.ResourceName)
-				delete(rawMsg, key)
+			err = unpopulate(val, "ResourceName", &d.ResourceName)
+			delete(rawMsg, key)
 		case "resourceProperties":
-				d.ResourceProperties, err = unmarshalBaseResourcePropertiesClassification(val)
-				delete(rawMsg, key)
+			d.ResourceProperties, err = unmarshalBaseResourcePropertiesClassification(val)
+			delete(rawMsg, key)
 		case "resourceType":
-				err = unpopulate(val, "ResourceType", &d.ResourceType)
-				delete(rawMsg, key)
+			err = unpopulate(val, "ResourceType", &d.ResourceType)
+			delete(rawMsg, key)
 		case "resourceUri":
-				err = unpopulate(val, "ResourceURI", &d.ResourceURI)
-				delete(rawMsg, key)
+			err = unpopulate(val, "ResourceURI", &d.ResourceURI)
+			delete(rawMsg, key)
 		}
 		if err != nil {
 			return fmt.Errorf("unmarshalling type %T: %v", d, err)
@@ -480,32 +481,32 @@ func (d *DatasourceSet) UnmarshalJSON(data []byte) error {
 		var err error
 		switch key {
 		case "baseUri":
-				err = unpopulate(val, "BaseURI", &d.BaseURI)
-				delete(rawMsg, key)
+			err = unpopulate(val, "BaseURI", &d.BaseURI)
+			delete(rawMsg, key)
 		case "datasourceType":
-				err = unpopulate(val, "DatasourceType", &d.DatasourceType)
-				delete(rawMsg, key)
+			err = unpopulate(val, "DatasourceType", &d.DatasourceType)
+			delete(rawMsg, key)
 		case "objectType":
-				err = unpopulate(val, "ObjectType", &d.ObjectType)
-				delete(rawMsg, key)
+			err = unpopulate(val, "ObjectType", &d.ObjectType)
+			delete(rawMsg, key)
 		case "resourceID":
-				err = unpopulate(val, "ResourceID", &d.ResourceID)
-				delete(rawMsg, key)
+			err = unpopulate(val, "ResourceID", &d.ResourceID)
+			delete(rawMsg, key)
 		case "resourceLocation":
-				err = unpopulate(val, "ResourceLocation", &d.ResourceLocation)
-				delete(rawMsg, key)
+			err = unpopulate(val, "ResourceLocation", &d.ResourceLocation)
+			delete(rawMsg, key)
 		case "resourceName":
-				err = unpopulate(val, "ResourceName", &d.ResourceName)
-				delete(rawMsg, key)
+			err = unpopulate(val, "ResourceName", &d.ResourceName)
+			delete(rawMsg, key)
 		case "resourceProperties":
-				d.ResourceProperties, err = unmarshalBaseResourcePropertiesClassification(val)
-				delete(rawMsg, key)
+			d.ResourceProperties, err = unmarshalBaseResourcePropertiesClassification(val)
+			delete(rawMsg, key)
 		case "resourceType":
-				err = unpopulate(val, "ResourceType", &d.ResourceType)
-				delete(rawMsg, key)
+			err = unpopulate(val, "ResourceType", &d.ResourceType)
+			delete(rawMsg, key)
 		case "resourceUri":
-				err = unpopulate(val, "ResourceURI", &d.ResourceURI)
-				delete(rawMsg, key)
+			err = unpopulate(val, "ResourceURI", &d.ResourceURI)
+			delete(rawMsg, key)
 		}
 		if err != nil {
 			return fmt.Errorf("unmarshalling type %T: %v", d, err)
@@ -533,14 +534,14 @@ func (i *ItemPathBasedRestoreCriteria) UnmarshalJSON(data []byte) error {
 		var err error
 		switch key {
 		case "isPathRelativeToBackupItem":
-				err = unpopulate(val, "IsPathRelativeToBackupItem", &i.IsPathRelativeToBackupItem)
-				delete(rawMsg, key)
+			err = unpopulate(val, "IsPathRelativeToBackupItem", &i.IsPathRelativeToBackupItem)
+			delete(rawMsg, key)
 		case "itemPath":
-				err = unpopulate(val, "ItemPath", &i.ItemPath)
-				delete(rawMsg, key)
+			err = unpopulate(val, "ItemPath", &i.ItemPath)
+			delete(rawMsg, key)
 		case "objectType":
-				err = unpopulate(val, "ObjectType", &i.ObjectType)
-				delete(rawMsg, key)
+			err = unpopulate(val, "ObjectType", &i.ObjectType)
+			delete(rawMsg, key)
 		}
 		if err != nil {
 			return fmt.Errorf("unmarshalling type %T: %v", i, err)
@@ -568,14 +569,14 @@ func (k *KubernetesPVRestoreCriteria) UnmarshalJSON(data []byte) error {
 		var err error
 		switch key {
 		case "name":
-				err = unpopulate(val, "Name", &k.Name)
-				delete(rawMsg, key)
+			err = unpopulate(val, "Name", &k.Name)
+			delete(rawMsg, key)
 		case "objectType":
-				err = unpopulate(val, "ObjectType", &k.ObjectType)
-				delete(rawMsg, key)
+			err = unpopulate(val, "ObjectType", &k.ObjectType)
+			delete(rawMsg, key)
 		case "storageClassName":
-				err = unpopulate(val, "StorageClassName", &k.StorageClassName)
-				delete(rawMsg, key)
+			err = unpopulate(val, "StorageClassName", &k.StorageClassName)
+			delete(rawMsg, key)
 		}
 		if err != nil {
 			return fmt.Errorf("unmarshalling type %T: %v", k, err)
@@ -603,14 +604,14 @@ func (k *KubernetesStorageClassRestoreCriteria) UnmarshalJSON(data []byte) error
 		var err error
 		switch key {
 		case "objectType":
-				err = unpopulate(val, "ObjectType", &k.ObjectType)
-				delete(rawMsg, key)
+			err = unpopulate(val, "ObjectType", &k.ObjectType)
+			delete(rawMsg, key)
 		case "provisioner":
-				err = unpopulate(val, "Provisioner", &k.Provisioner)
-				delete(rawMsg, key)
+			err = unpopulate(val, "Provisioner", &k.Provisioner)
+			delete(rawMsg, key)
 		case "selectedStorageClassName":
-				err = unpopulate(val, "SelectedStorageClassName", &k.SelectedStorageClassName)
-				delete(rawMsg, key)
+			err = unpopulate(val, "SelectedStorageClassName", &k.SelectedStorageClassName)
+			delete(rawMsg, key)
 		}
 		if err != nil {
 			return fmt.Errorf("unmarshalling type %T: %v", k, err)
@@ -637,11 +638,11 @@ func (p *PolicyParameters) UnmarshalJSON(data []byte) error {
 		var err error
 		switch key {
 		case "backupDatasourceParametersList":
-				p.BackupDatasourceParametersList, err = unmarshalBackupDatasourceParametersClassificationArray(val)
-				delete(rawMsg, key)
+			p.BackupDatasourceParametersList, err = unmarshalBackupDatasourceParametersClassificationArray(val)
+			delete(rawMsg, key)
 		case "dataStoreParametersList":
-				p.DataStoreParametersList, err = unmarshalDataStoreParametersClassificationArray(val)
-				delete(rawMsg, key)
+			p.DataStoreParametersList, err = unmarshalDataStoreParametersClassificationArray(val)
+			delete(rawMsg, key)
 		}
 		if err != nil {
 			return fmt.Errorf("unmarshalling type %T: %v", p, err)
@@ -681,14 +682,14 @@ func (r *RangeBasedItemLevelRestoreCriteria) UnmarshalJSON(data []byte) error {
 		var err error
 		switch key {
 		case "maxMatchingValue":
-				err = unpopulate(val, "MaxMatchingValue", &r.MaxMatchingValue)
-				delete(rawMsg, key)
+			err = unpopulate(val, "MaxMatchingValue", &r.MaxMatchingValue)
+			delete(rawMsg, key)
 		case "minMatchingValue":
-				err = unpopulate(val, "MinMatchingValue", &r.MinMatchingValue)
-				delete(rawMsg, key)
+			err = unpopulate(val, "MinMatchingValue", &r.MinMatchingValue)
+			delete(rawMsg, key)
 		case "objectType":
-				err = unpopulate(val, "ObjectType", &r.ObjectType)
-				delete(rawMsg, key)
+			err = unpopulate(val, "ObjectType", &r.ObjectType)
+			delete(rawMsg, key)
 		}
 		if err != nil {
 			return fmt.Errorf("unmarshalling type %T: %v", r, err)
@@ -728,50 +729,50 @@ func (r *RestoreRequest) UnmarshalJSON(data []byte) error {
 		var err error
 		switch key {
 		case "additionalProperties":
-				err = unpopulate(val, "AdditionalProperties", &r.AdditionalProperties)
-				delete(rawMsg, key)
+			err = unpopulate(val, "AdditionalProperties", &r.AdditionalProperties)
+			delete(rawMsg, key)
 		case "datasourceAccessToken":
-				err = unpopulate(val, "DatasourceAccessToken", &r.DatasourceAccessToken)
-				delete(rawMsg, key)
+			err = unpopulate(val, "DatasourceAccessToken", &r.DatasourceAccessToken)
+			delete(rawMsg, key)
 		case "datastoreInitializeParams":
-				err = unpopulate(val, "DatastoreInitializeParams", &r.DatastoreInitializeParams)
-				delete(rawMsg, key)
+			err = unpopulate(val, "DatastoreInitializeParams", &r.DatastoreInitializeParams)
+			delete(rawMsg, key)
 		case "forceOverwrite":
-				err = unpopulate(val, "ForceOverwrite", &r.ForceOverwrite)
-				delete(rawMsg, key)
+			err = unpopulate(val, "ForceOverwrite", &r.ForceOverwrite)
+			delete(rawMsg, key)
 		case "iLRRestoreCriteria":
-				r.ILRRestoreCriteria, err = unmarshalItemLevelRestoreCriteriaClassificationArray(val)
-				delete(rawMsg, key)
+			r.ILRRestoreCriteria, err = unmarshalItemLevelRestoreCriteriaClassificationArray(val)
+			delete(rawMsg, key)
 		case "jobLibraryInitializationParams":
-				err = unpopulate(val, "JobLibraryInitializationParams", &r.JobLibraryInitializationParams)
-				delete(rawMsg, key)
+			err = unpopulate(val, "JobLibraryInitializationParams", &r.JobLibraryInitializationParams)
+			delete(rawMsg, key)
 		case "loopBackContext":
-				err = unpopulate(val, "LoopBackContext", &r.LoopBackContext)
-				delete(rawMsg, key)
+			err = unpopulate(val, "LoopBackContext", &r.LoopBackContext)
+			delete(rawMsg, key)
 		case "rPCatalogInitializeParams":
-				err = unpopulate(val, "RPCatalogInitializeParams", &r.RPCatalogInitializeParams)
-				delete(rawMsg, key)
+			err = unpopulate(val, "RPCatalogInitializeParams", &r.RPCatalogInitializeParams)
+			delete(rawMsg, key)
 		case "restoreAsFilesTargetDetails":
-				err = unpopulate(val, "RestoreAsFilesTargetDetails", &r.RestoreAsFilesTargetDetails)
-				delete(rawMsg, key)
+			err = unpopulate(val, "RestoreAsFilesTargetDetails", &r.RestoreAsFilesTargetDetails)
+			delete(rawMsg, key)
 		case "restoreToPointInTime":
-				err = unpopulate(val, "RestoreToPointInTime", &r.RestoreToPointInTime)
-				delete(rawMsg, key)
+			err = unpopulate(val, "RestoreToPointInTime", &r.RestoreToPointInTime)
+			delete(rawMsg, key)
 		case "restoreToRPId":
-				err = unpopulate(val, "RestoreToRPID", &r.RestoreToRPID)
-				delete(rawMsg, key)
+			err = unpopulate(val, "RestoreToRPID", &r.RestoreToRPID)
+			delete(rawMsg, key)
 		case "sourceDatasource":
-				err = unpopulate(val, "SourceDatasource", &r.SourceDatasource)
-				delete(rawMsg, key)
+			err = unpopulate(val, "SourceDatasource", &r.SourceDatasource)
+			delete(rawMsg, key)
 		case "sourceDatasourceSet":
-				err = unpopulate(val, "SourceDatasourceSet", &r.SourceDatasourceSet)
-				delete(rawMsg, key)
+			err = unpopulate(val, "SourceDatasourceSet", &r.SourceDatasourceSet)
+			delete(rawMsg, key)
 		case "targetDatasource":
-				err = unpopulate(val, "TargetDatasource", &r.TargetDatasource)
-				delete(rawMsg, key)
+			err = unpopulate(val, "TargetDatasource", &r.TargetDatasource)
+			delete(rawMsg, key)
 		case "targetDatasourceSet":
-				err = unpopulate(val, "TargetDatasourceSet", &r.TargetDatasourceSet)
-				delete(rawMsg, key)
+			err = unpopulate(val, "TargetDatasourceSet", &r.TargetDatasourceSet)
+			delete(rawMsg, key)
 		}
 		if err != nil {
 			return fmt.Errorf("unmarshalling type %T: %v", r, err)
@@ -810,47 +811,47 @@ func (r *RestoreRequestBase) UnmarshalJSON(data []byte) error {
 		var err error
 		switch key {
 		case "additionalProperties":
-				err = unpopulate(val, "AdditionalProperties", &r.AdditionalProperties)
-				delete(rawMsg, key)
+			err = unpopulate(val, "AdditionalProperties", &r.AdditionalProperties)
+			delete(rawMsg, key)
 		case "datasourceAccessToken":
-				err = unpopulate(val, "DatasourceAccessToken", &r.DatasourceAccessToken)
-				delete(rawMsg, key)
+			err = unpopulate(val, "DatasourceAccessToken", &r.DatasourceAccessToken)
+			delete(rawMsg, key)
 		case "datastoreInitializeParams":
-				err = unpopulate(val, "DatastoreInitializeParams", &r.DatastoreInitializeParams)
-				delete(rawMsg, key)
+			err = unpopulate(val, "DatastoreInitializeParams", &r.DatastoreInitializeParams)
+			delete(rawMsg, key)
 		case "forceOverwrite":
-				err = unpopulate(val, "ForceOverwrite", &r.ForceOverwrite)
-				delete(rawMsg, key)
+			err = unpopulate(val, "ForceOverwrite", &r.ForceOverwrite)
+			delete(rawMsg, key)
 		case "iLRRestoreCriteria":
-				r.ILRRestoreCriteria, err = unmarshalItemLevelRestoreCriteriaClassificationArray(val)
-				delete(rawMsg, key)
+			r.ILRRestoreCriteria, err = unmarshalItemLevelRestoreCriteriaClassificationArray(val)
+			delete(rawMsg, key)
 		case "jobLibraryInitializationParams":
-				err = unpopulate(val, "JobLibraryInitializationParams", &r.JobLibraryInitializationParams)
-				delete(rawMsg, key)
+			err = unpopulate(val, "JobLibraryInitializationParams", &r.JobLibraryInitializationParams)
+			delete(rawMsg, key)
 		case "rPCatalogInitializeParams":
-				err = unpopulate(val, "RPCatalogInitializeParams", &r.RPCatalogInitializeParams)
-				delete(rawMsg, key)
+			err = unpopulate(val, "RPCatalogInitializeParams", &r.RPCatalogInitializeParams)
+			delete(rawMsg, key)
 		case "restoreAsFilesTargetDetails":
-				err = unpopulate(val, "RestoreAsFilesTargetDetails", &r.RestoreAsFilesTargetDetails)
-				delete(rawMsg, key)
+			err = unpopulate(val, "RestoreAsFilesTargetDetails", &r.RestoreAsFilesTargetDetails)
+			delete(rawMsg, key)
 		case "restoreToPointInTime":
-				err = unpopulate(val, "RestoreToPointInTime", &r.RestoreToPointInTime)
-				delete(rawMsg, key)
+			err = unpopulate(val, "RestoreToPointInTime", &r.RestoreToPointInTime)
+			delete(rawMsg, key)
 		case "restoreToRPId":
-				err = unpopulate(val, "RestoreToRPID", &r.RestoreToRPID)
-				delete(rawMsg, key)
+			err = unpopulate(val, "RestoreToRPID", &r.RestoreToRPID)
+			delete(rawMsg, key)
 		case "sourceDatasource":
-				err = unpopulate(val, "SourceDatasource", &r.SourceDatasource)
-				delete(rawMsg, key)
+			err = unpopulate(val, "SourceDatasource", &r.SourceDatasource)
+			delete(rawMsg, key)
 		case "sourceDatasourceSet":
-				err = unpopulate(val, "SourceDatasourceSet", &r.SourceDatasourceSet)
-				delete(rawMsg, key)
+			err = unpopulate(val, "SourceDatasourceSet", &r.SourceDatasourceSet)
+			delete(rawMsg, key)
 		case "targetDatasource":
-				err = unpopulate(val, "TargetDatasource", &r.TargetDatasource)
-				delete(rawMsg, key)
+			err = unpopulate(val, "TargetDatasource", &r.TargetDatasource)
+			delete(rawMsg, key)
 		case "targetDatasourceSet":
-				err = unpopulate(val, "TargetDatasourceSet", &r.TargetDatasourceSet)
-				delete(rawMsg, key)
+			err = unpopulate(val, "TargetDatasourceSet", &r.TargetDatasourceSet)
+			delete(rawMsg, key)
 		}
 		if err != nil {
 			return fmt.Errorf("unmarshalling type %T: %v", r, err)
@@ -886,30 +887,30 @@ func (s *ScheduleBasedBackupCriteria) UnmarshalJSON(data []byte) error {
 		var err error
 		switch key {
 		case "absoluteCriteria":
-				err = unpopulate(val, "AbsoluteCriteria", &s.AbsoluteCriteria)
-				delete(rawMsg, key)
+			err = unpopulate(val, "AbsoluteCriteria", &s.AbsoluteCriteria)
+			delete(rawMsg, key)
 		case "daysOfMonth":
-				err = unpopulate(val, "DaysOfMonth", &s.DaysOfMonth)
-				delete(rawMsg, key)
+			err = unpopulate(val, "DaysOfMonth", &s.DaysOfMonth)
+			delete(rawMsg, key)
 		case "daysOfTheWeek":
-				err = unpopulate(val, "DaysOfTheWeek", &s.DaysOfTheWeek)
-				delete(rawMsg, key)
+			err = unpopulate(val, "DaysOfTheWeek", &s.DaysOfTheWeek)
+			delete(rawMsg, key)
 		case "monthsOfYear":
-				err = unpopulate(val, "MonthsOfYear", &s.MonthsOfYear)
-				delete(rawMsg, key)
+			err = unpopulate(val, "MonthsOfYear", &s.MonthsOfYear)
+			delete(rawMsg, key)
 		case "objectType":
-				err = unpopulate(val, "ObjectType", &s.ObjectType)
-				delete(rawMsg, key)
+			err = unpopulate(val, "ObjectType", &s.ObjectType)
+			delete(rawMsg, key)
 		case "scheduleTimes":
 			var aux []*timeRFC3339
 			err = unpopulate(val, "ScheduleTimes", &aux)
 			for _, au := range aux {
 				s.ScheduleTimes = append(s.ScheduleTimes, (*time.Time)(au))
 			}
-				delete(rawMsg, key)
+			delete(rawMsg, key)
 		case "weeksOfTheMonth":
-				err = unpopulate(val, "WeeksOfTheMonth", &s.WeeksOfTheMonth)
-				delete(rawMsg, key)
+			err = unpopulate(val, "WeeksOfTheMonth", &s.WeeksOfTheMonth)
+			delete(rawMsg, key)
 		}
 		if err != nil {
 			return fmt.Errorf("unmarshalling type %T: %v", s, err)
@@ -937,14 +938,14 @@ func (s *ScheduleBasedTriggerContext) UnmarshalJSON(data []byte) error {
 		var err error
 		switch key {
 		case "objectType":
-				err = unpopulate(val, "ObjectType", &s.ObjectType)
-				delete(rawMsg, key)
+			err = unpopulate(val, "ObjectType", &s.ObjectType)
+			delete(rawMsg, key)
 		case "schedule":
-				err = unpopulate(val, "Schedule", &s.Schedule)
-				delete(rawMsg, key)
+			err = unpopulate(val, "Schedule", &s.Schedule)
+			delete(rawMsg, key)
 		case "taggingCriteria":
-				err = unpopulate(val, "TaggingCriteria", &s.TaggingCriteria)
-				delete(rawMsg, key)
+			err = unpopulate(val, "TaggingCriteria", &s.TaggingCriteria)
+			delete(rawMsg, key)
 		}
 		if err != nil {
 			return fmt.Errorf("unmarshalling type %T: %v", s, err)
@@ -997,17 +998,17 @@ func (t *TaggingCriteria) UnmarshalJSON(data []byte) error {
 		var err error
 		switch key {
 		case "criteria":
-				t.Criteria, err = unmarshalBackupCriteriaClassificationArray(val)
-				delete(rawMsg, key)
+			t.Criteria, err = unmarshalBackupCriteriaClassificationArray(val)
+			delete(rawMsg, key)
 		case "isDefault":
-				err = unpopulate(val, "IsDefault", &t.IsDefault)
-				delete(rawMsg, key)
+			err = unpopulate(val, "IsDefault", &t.IsDefault)
+			delete(rawMsg, key)
 		case "tagInfo":
-				err = unpopulate(val, "TagInfo", &t.TagInfo)
-				delete(rawMsg, key)
+			err = unpopulate(val, "TagInfo", &t.TagInfo)
+			delete(rawMsg, key)
 		case "taggingPriority":
-				err = unpopulate(val, "TaggingPriority", &t.TaggingPriority)
-				delete(rawMsg, key)
+			err = unpopulate(val, "TaggingPriority", &t.TaggingPriority)
+			delete(rawMsg, key)
 		}
 		if err != nil {
 			return fmt.Errorf("unmarshalling type %T: %v", t, err)
@@ -1085,50 +1086,50 @@ func (v *ValidateForRestoreRequest) UnmarshalJSON(data []byte) error {
 		var err error
 		switch key {
 		case "additionalProperties":
-				err = unpopulate(val, "AdditionalProperties", &v.AdditionalProperties)
-				delete(rawMsg, key)
+			err = unpopulate(val, "AdditionalProperties", &v.AdditionalProperties)
+			delete(rawMsg, key)
 		case "datasourceAccessToken":
-				err = unpopulate(val, "DatasourceAccessToken", &v.DatasourceAccessToken)
-				delete(rawMsg, key)
+			err = unpopulate(val, "DatasourceAccessToken", &v.DatasourceAccessToken)
+			delete(rawMsg, key)
 		case "datastoreInitializeParams":
-				err = unpopulate(val, "DatastoreInitializeParams", &v.DatastoreInitializeParams)
-				delete(rawMsg, key)
+			err = unpopulate(val, "DatastoreInitializeParams", &v.DatastoreInitializeParams)
+			delete(rawMsg, key)
 		case "forceOverwrite":
-				err = unpopulate(val, "ForceOverwrite", &v.ForceOverwrite)
-				delete(rawMsg, key)
+			err = unpopulate(val, "ForceOverwrite", &v.ForceOverwrite)
+			delete(rawMsg, key)
 		case "iLRRestoreCriteria":
-				v.ILRRestoreCriteria, err = unmarshalItemLevelRestoreCriteriaClassificationArray(val)
-				delete(rawMsg, key)
+			v.ILRRestoreCriteria, err = unmarshalItemLevelRestoreCriteriaClassificationArray(val)
+			delete(rawMsg, key)
 		case "isValidateOnlyOperation":
-				err = unpopulate(val, "IsValidateOnlyOperation", &v.IsValidateOnlyOperation)
-				delete(rawMsg, key)
+			err = unpopulate(val, "IsValidateOnlyOperation", &v.IsValidateOnlyOperation)
+			delete(rawMsg, key)
 		case "jobLibraryInitializationParams":
-				err = unpopulate(val, "JobLibraryInitializationParams", &v.JobLibraryInitializationParams)
-				delete(rawMsg, key)
+			err = unpopulate(val, "JobLibraryInitializationParams", &v.JobLibraryInitializationParams)
+			delete(rawMsg, key)
 		case "rPCatalogInitializeParams":
-				err = unpopulate(val, "RPCatalogInitializeParams", &v.RPCatalogInitializeParams)
-				delete(rawMsg, key)
+			err = unpopulate(val, "RPCatalogInitializeParams", &v.RPCatalogInitializeParams)
+			delete(rawMsg, key)
 		case "restoreAsFilesTargetDetails":
-				err = unpopulate(val, "RestoreAsFilesTargetDetails", &v.RestoreAsFilesTargetDetails)
-				delete(rawMsg, key)
+			err = unpopulate(val, "RestoreAsFilesTargetDetails", &v.RestoreAsFilesTargetDetails)
+			delete(rawMsg, key)
 		case "restoreToPointInTime":
-				err = unpopulate(val, "RestoreToPointInTime", &v.RestoreToPointInTime)
-				delete(rawMsg, key)
+			err = unpopulate(val, "RestoreToPointInTime", &v.RestoreToPointInTime)
+			delete(rawMsg, key)
 		case "restoreToRPId":
-				err = unpopulate(val, "RestoreToRPID", &v.RestoreToRPID)
-				delete(rawMsg, key)
+			err = unpopulate(val, "RestoreToRPID", &v.RestoreToRPID)
+			delete(rawMsg, key)
 		case "sourceDatasource":
-				err = unpopulate(val, "SourceDatasource", &v.SourceDatasource)
-				delete(rawMsg, key)
+			err = unpopulate(val, "SourceDatasource", &v.SourceDatasource)
+			delete(rawMsg, key)
 		case "sourceDatasourceSet":
-				err = unpopulate(val, "SourceDatasourceSet", &v.SourceDatasourceSet)
-				delete(rawMsg, key)
+			err = unpopulate(val, "SourceDatasourceSet", &v.SourceDatasourceSet)
+			delete(rawMsg, key)
 		case "targetDatasource":
-				err = unpopulate(val, "TargetDatasource", &v.TargetDatasource)
-				delete(rawMsg, key)
+			err = unpopulate(val, "TargetDatasource", &v.TargetDatasource)
+			delete(rawMsg, key)
 		case "targetDatasourceSet":
-				err = unpopulate(val, "TargetDatasourceSet", &v.TargetDatasourceSet)
-				delete(rawMsg, key)
+			err = unpopulate(val, "TargetDatasourceSet", &v.TargetDatasourceSet)
+			delete(rawMsg, key)
 		}
 		if err != nil {
 			return fmt.Errorf("unmarshalling type %T: %v", v, err)
@@ -1140,7 +1141,7 @@ func (v *ValidateForRestoreRequest) UnmarshalJSON(data []byte) error {
 // MarshalJSON implements the json.Marshaller interface for type VmwareVMProperties.
 func (v VmwareVMProperties) MarshalJSON() ([]byte, error) {
 	objectMap := make(map[string]interface{})
-	populate(objectMap, "instanceUUID", v.InstanceUUID)
+	populate(objectMap, "instanceUuid", v.InstanceUUID)
 	objectMap["objectType"] = "VmwareVMProperties"
 	return json.Marshal(objectMap)
 }
@@ -1154,12 +1155,12 @@ func (v *VmwareVMProperties) UnmarshalJSON(data []byte) error {
 	for key, val := range rawMsg {
 		var err error
 		switch key {
-		case "instanceUUID":
-				err = unpopulate(val, "InstanceUUID", &v.InstanceUUID)
-				delete(rawMsg, key)
+		case "instanceUuid":
+			err = unpopulate(val, "InstanceUUID", &v.InstanceUUID)
+			delete(rawMsg, key)
 		case "objectType":
-				err = unpopulate(val, "ObjectType", &v.ObjectType)
-				delete(rawMsg, key)
+			err = unpopulate(val, "ObjectType", &v.ObjectType)
+			delete(rawMsg, key)
 		}
 		if err != nil {
 			return fmt.Errorf("unmarshalling type %T: %v", v, err)
@@ -1187,4 +1188,3 @@ func unpopulate(data json.RawMessage, fn string, v interface{}) error {
 	}
 	return nil
 }
-

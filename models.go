@@ -119,7 +119,7 @@ type AzureOperationalStoreParameters struct {
 // GetDataStoreParameters implements the DataStoreParametersClassification interface for type AzureOperationalStoreParameters.
 func (a *AzureOperationalStoreParameters) GetDataStoreParameters() *DataStoreParameters {
 	return &DataStoreParameters{
-		ObjectType: a.ObjectType,
+		ObjectType:    a.ObjectType,
 		DataStoreType: a.DataStoreType,
 	}
 }
@@ -173,7 +173,9 @@ type BackupDatasourceParameters struct {
 }
 
 // GetBackupDatasourceParameters implements the BackupDatasourceParametersClassification interface for type BackupDatasourceParameters.
-func (b *BackupDatasourceParameters) GetBackupDatasourceParameters() *BackupDatasourceParameters { return b }
+func (b *BackupDatasourceParameters) GetBackupDatasourceParameters() *BackupDatasourceParameters {
+	return b
+}
 
 // BackupParametersClassification provides polymorphic access to related types.
 // Call the interface's GetBackupParameters() method to access the common type.
@@ -196,7 +198,7 @@ func (b *BackupParameters) GetBackupParameters() *BackupParameters { return b }
 // BackupRequest for the backup operation
 type BackupRequest struct {
 	// REQUIRED; List of properties with values that the Backup should honour, for a given BackupRule. Like Tags, Exclusion rules
-// etc.
+	// etc.
 	BackupParameters *AzureBackupParamsForPlugin `json:"backupParameters,omitempty"`
 
 	// REQUIRED; Datasource object
@@ -227,7 +229,7 @@ type BackupRequest struct {
 // BackupRequestBase is the base for all backup request.
 type BackupRequestBase struct {
 	// REQUIRED; List of properties with values that the Backup should honour, for a given BackupRule. Like Tags, Exclusion rules
-// etc.
+	// etc.
 	BackupParameters *AzureBackupParamsForPlugin `json:"backupParameters,omitempty"`
 
 	// REQUIRED; Datasource object
@@ -420,7 +422,7 @@ type CommitOrRollbackBackupClientRefreshTokensOptions struct {
 // CommitOrRollbackBackupRequest for the CommitOrRollbackBackup operation.
 type CommitOrRollbackBackupRequest struct {
 	// REQUIRED; List of properties with values that the Backup should honour, for a given BackupRule. Like Tags, Exclusion rules
-// etc.
+	// etc.
 	BackupParameters *AzureBackupParamsForPlugin `json:"backupParameters,omitempty"`
 
 	// REQUIRED; Datasource object
@@ -627,11 +629,11 @@ func (d *DataStoreParameters) GetDataStoreParameters() *DataStoreParameters { re
 // Datasource - Base datasource class with properties common to all fabric types
 type Datasource struct {
 	// REQUIRED; Full ARM ID of the resource. For azure resources, this is ARM ID. For non azure resources, this will be the ID
-// created by backup service via Fabric/Vault.
+	// created by backup service via Fabric/Vault.
 	ResourceID *string `json:"resourceID,omitempty"`
 
 	// BaseUri of the resource. For azure resources, this will be ARM endpoint of current cloud. For non azure resources, this
-// will be private endpoint information or null.
+	// will be private endpoint information or null.
 	BaseURI *string `json:"baseUri,omitempty"`
 
 	// DatasourceType of the resource.
@@ -659,11 +661,11 @@ type Datasource struct {
 // DatasourceSet class with properties common to all fabric types
 type DatasourceSet struct {
 	// REQUIRED; Full ARM ID of the resource. For azure resources, this is ARM ID. For non azure resources, this will be the ID
-// created by backup service via Fabric/Vault.
+	// created by backup service via Fabric/Vault.
 	ResourceID *string `json:"resourceID,omitempty"`
 
 	// BaseUri of the resource. For azure resources, this will be ARM endpoint of current cloud. For non azure resources, this
-// will be private endpoint information or null.
+	// will be private endpoint information or null.
 	BaseURI *string `json:"baseUri,omitempty"`
 
 	// DatasourceType of the resource.
@@ -1150,7 +1152,7 @@ type ScheduleBasedBackupCriteria struct {
 	ObjectType *string `json:"objectType,omitempty"`
 
 	// it contains absolute values like "AllBackup" / "FirstOfDay" / "FirstOfWeek" / "FirstOfMonth" and should be part of AbsoluteMarker
-// enum
+	// enum
 	AbsoluteCriteria []*AbsoluteMarker `json:"absoluteCriteria,omitempty"`
 
 	// This is day of the month from 1 to 28 other wise last of month
@@ -1340,7 +1342,7 @@ type TaggingCriteria struct {
 // TargetDetails - Class encapsulating target details, used where the destination is not a datasource
 type TargetDetails struct {
 	// REQUIRED; Restore operation may create multiple files inside location pointed by Url Below will be the common prefix for
-// all of them
+	// all of them
 	FilePrefix *string `json:"filePrefix,omitempty"`
 
 	// REQUIRED; Denotes the target location where the data will be restored, string value for the enum {Microsoft.Internal.AzureBackup.DataProtection.Common.Interface.RestoreTargetLocationType}
@@ -1451,7 +1453,7 @@ type ValidateForBackupClientRefreshTokensOptions struct {
 // ValidateForBackupRequest for the validate for backup operation.
 type ValidateForBackupRequest struct {
 	// REQUIRED; List of properties with values that the Backup should honour, for a given BackupRule. Like Tags, Exclusion rules
-// etc.
+	// etc.
 	BackupParameters *AzureBackupParamsForPlugin `json:"backupParameters,omitempty"`
 
 	// REQUIRED; Datasource object
@@ -1667,7 +1669,7 @@ type ValidateForRestoreStatus struct {
 // VmwareVMProperties - Properties which are specific to vmwares
 type VmwareVMProperties struct {
 	// REQUIRED; instanceuuid
-	InstanceUUID *string `json:"instanceUUID,omitempty"`
+	InstanceUUID *string `json:"instanceUuid,omitempty"`
 
 	// REQUIRED; Type of the specific object - used for deserializing
 	ObjectType *string `json:"objectType,omitempty"`
@@ -1679,4 +1681,3 @@ func (v *VmwareVMProperties) GetBaseResourceProperties() *BaseResourceProperties
 		ObjectType: v.ObjectType,
 	}
 }
-

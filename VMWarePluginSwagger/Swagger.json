@@ -4802,7 +4802,7 @@
     "VmwareVMProperties": {
     "description": "Properties which are specific to vmwares",
       "required": [
-        "instanceUUID"
+        "instanceUuid"
               ],
       "allOf": [
         {
@@ -4810,7 +4810,7 @@
         }],
       "type": "object",
       "properties": {
-        "instanceUUID": {
+        "instanceUuid": {
           "description": "instanceuuid",
           "type": "string",
           "readOnly": false
