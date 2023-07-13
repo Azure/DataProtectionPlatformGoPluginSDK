@@ -5393,6 +5393,25 @@
       },
       "x-ms-discriminator-value": "KubernetesStorageClassRestoreCriteria"
     },
+    "LocationSettings": {
+      "description": "Class encapsulating the locationSettings of the restore - Same Region, Paired Region, Cross Region.",
+      "type": "object",
+      "properties": {
+        "locationMode": {
+          "description": "Location to which the restore is initiated",
+          "enum": [
+            "PrimaryOnly", 
+            "SecondaryOnly"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "name": "LocationMode",
+            "modelAsString": true
+          },
+          "x-nullable": true
+        }
+      }
+    },
     "PolicyInfo": {
       "description": "Policy Info for the backups",
       "type": "object",
@@ -5553,6 +5572,10 @@
         }
       ],
       "properties": {
+        "locationSettings": {
+          "$ref": "#/definitions/LocationSettings",
+          "description": "Location Settings of the restore operation indicating if the restore is to the Source Location , Paired Region , Cross Region."
+        },
         "sourceDatasourceSet": {
           "$ref": "#/definitions/DatasourceSet",
           "description": "Source DatasourceSet object"
@@ -5937,6 +5960,10 @@
       "properties": {
         "url": {
           "description": "Url denoting the restore destination. It can point to container / file share etc",
+          "type": "string"
+        },
+        "targetResourceArmId": {
+          "description": "Full ARM Id denoting the restore destination. It is the ARM Id pointing to container / file share\r\n            This is optional if the target subscription can be identified with the URL field. If not\r\n            then this is needed if CrossSubscriptionRestore field of BackupVault is in any of the disabled states",
           "type": "string"
         },
         "filePrefix": {

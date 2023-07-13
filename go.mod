@@ -1,11 +1,11 @@
 module github.com/azure/DataProtectionPlatformGoPluginSDK
 
-go 1.18
+go 1.20
 
-require github.com/Azure/azure-sdk-for-go/sdk/azcore v1.1.1
+require github.com/Azure/azure-sdk-for-go/sdk/azcore v1.7.0
 
 require (
-	github.com/Azure/azure-sdk-for-go/sdk/internal v1.0.0 // indirect
-	golang.org/x/net v0.0.0-20220425223048-2871e0cb64e4 // indirect
-	golang.org/x/text v0.3.7 // indirect
+	github.com/Azure/azure-sdk-for-go/sdk/internal v1.3.0 // indirect
+	golang.org/x/net v0.8.0 // indirect
+	golang.org/x/text v0.8.0 // indirect
 )
