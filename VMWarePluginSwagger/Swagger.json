@@ -5687,15 +5687,15 @@
         },
         "eTag": {
           "description": "Retention Tag version.",
-          "type": "string",
-          "readOnly": true
+          "type": "string"
         },
         "id": {
           "description": "Retention Tag version.",
-          "type": "string",
-          "readOnly": true
+          "type": "string"
         }
-      }
+      },
+      "x-csharp-usage": "model,input,output,converter",
+      "x-csharp-formats": "json"
     },
     "ScheduleBasedBackupCriteria": {
       "description": "This is for scheduled backups where criteria is schedule based\r\n                 /// Example of supported identifiers:\r\n             1.  Every Sunday/Monday\r\n                 DaysOfWeeks : Sunday/Monday\r\n            \r\n             2.  First/Second Sunday/Tuesday of the Month\r\n                 WeekOfMonth : First/Second\r\n                 DaysOfWeek : Sunday/Tuesday\r\n            \r\n             3.  1st/2nd day of month\r\n                 DaysOfMonth : 1/2\r\n            \r\n             4. First Sunday of January\r\n                 WeekOfMonth : First/Second\r\n                 DaysOfWeek : Sunday/Tuesday\r\n                 MonthsOfYear : Jan\r\n            \r\n             5. 1st/2nd January\r\n                 DaysOfMonth : 1/2\r\n                 MonthsOfYear : Jan\r\n            \r\n             6. First SuccessFull of Week\r\n                AbsoluteIdentifier : FirstOfWeek",
