@@ -1141,11 +1141,11 @@ type RetentionTag struct {
 	// REQUIRED; Retention Tag Name to relate it to retention rule.
 	TagName *string `json:"tagName,omitempty"`
 
-	// READ-ONLY; Retention Tag version.
-	ETag *string `json:"eTag,omitempty" azure:"ro"`
+	// Retention Tag version.
+	ETag *string `json:"eTag,omitempty"`
 
-	// READ-ONLY; Retention Tag version.
-	ID *string `json:"id,omitempty" azure:"ro"`
+	// Retention Tag version.
+	ID *string `json:"id,omitempty"`
 }
 
 // ScheduleBasedBackupCriteria - This is for scheduled backups where criteria is schedule based /// Example of supported identifiers:
